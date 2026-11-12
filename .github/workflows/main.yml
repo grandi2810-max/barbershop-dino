@@ -6,9 +6,6 @@ on:
 jobs:
   build-ios:
     runs-on: macos-latest
-    defaults:
-      run:
-        working-directory: ./barbershopdino
     steps:
       - name: Checkout codice
         uses: actions/checkout@v4
@@ -21,6 +18,8 @@ jobs:
 
       - name: Dai permessi a Gradle
         run: chmod +x ./gradlew
+        working-directory: ./barbershopdino
 
       - name: Compila modulo iOS
         run: ./gradlew linkDebugFrameworkIosSimulatorArm64
+        working-directory: ./barbershopdino
