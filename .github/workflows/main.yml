@@ -6,6 +6,9 @@ on:
 jobs:
   build-ios:
     runs-on: macos-latest
+    defaults:
+      run:
+        working-directory: ./barbershopdino
     steps:
       - name: Checkout codice
         uses: actions/checkout@v4
