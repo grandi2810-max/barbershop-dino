@@ -1,0 +1,23 @@
+name: Build iOS App
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build-ios:
+    runs-on: macos-latest
+    steps:
+      - name: Checkout codice
+        uses: actions/checkout@v4
+
+      - name: Imposta Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Dai permessi a Gradle
+        run: chmod +x ./gradlew
+
+      - name: Compila modulo iOS
+        run: ./gradlew linkDebugFrameworkIosSimulatorArm64
